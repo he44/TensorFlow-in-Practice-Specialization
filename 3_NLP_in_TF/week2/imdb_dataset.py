@@ -66,3 +66,7 @@ model.compile(loss = 'binary_crossentropy', optimizer='adam', metrics=['accuracy
 model.summary()
 num_epochs = 10
 model.fit(padded, training_labels_final, epochs=num_epochs, validation_data=(testing_padded, testing_labels_final), verbose=2)
+
+e = model.layers[0]
+weights = e.get_weights()[0]
+print(weights.shape) # (vocab_size, embedding_dim)
